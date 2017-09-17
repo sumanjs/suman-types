@@ -1,0 +1,30 @@
+{
+  "name": "suman-types",
+  "version": "0.0.1001",
+  "description": "Typings / types for Suman projects.",
+  "main": "index.js",
+  "scripts": {
+    "test": "suman"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ORESoftware/suman-types.git"
+  },
+  "keywords": [
+    "suman",
+    "test",
+    "typings",
+    "types",
+    "typescript"
+  ],
+  "author": "Olegzandr VD",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/ORESoftware/suman-types/issues"
+  },
+  "homepage": "https://github.com/ORESoftware/suman-types#readme",
+  "devDependencies": {
+    "@types/core-js": "^0.9.43",
+    "@types/node": "^8.0.28"
+  }
+}
