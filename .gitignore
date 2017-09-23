@@ -4,6 +4,8 @@ node_modules
 coverage
 .nyc_output
 
+### files
+*.DS_Store
 
 ### matching files
 *.log

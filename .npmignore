@@ -12,6 +12,7 @@ test
 *.ts
 *.yml
 *.sh
+*.DS_Store
 
 ### individual files
 suman.conf.js
