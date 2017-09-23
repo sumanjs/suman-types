@@ -1,24 +1,23 @@
 
-# folders
-
+### folders
 .idea
 node_modules
 test
 
-# matching files
-
+### matching files
 *.json
 *.md
 *.txt
 *.log
 *.ts
+*.yml
+*.sh
 
-# individual files
-
+### individual files
 suman.conf.js
 .npmignore
 .gitignore
+.editorconfig
 
-# negation
-
+### negation
 !*.d.ts

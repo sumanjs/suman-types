@@ -3,10 +3,7 @@ import Domain = NodeJS.Domain;
 import {ITestSuite} from "./test-suite";
 import EventEmitter = NodeJS.EventEmitter;
 import {ISuman, ITableDataCallbackObj} from "./suman";
-import {IMapValue} from "suman-utils";
-
-
-
+import {IMapValue} from "./suman-utils";
 
 export interface IntegrantHashKeyVals {
   [key: string]: any
@@ -151,28 +148,27 @@ export interface IPseudoError {
 }
 
 export interface IPromiseWithDomain extends Promise<any> {
-  domain?:  ISumanTestCaseDomain | ISumanEachHookDomain | ISumanAllHookDomain
+  domain?: ISumanTestCaseDomain | ISumanEachHookDomain | ISumanAllHookDomain
 }
 
 export interface ISumanDomain extends Domain {
   isSumanDomain?: boolean
 }
 
-export interface ISumanTestCaseDomain extends  ISumanDomain {
+export interface ISumanTestCaseDomain extends ISumanDomain {
   sumanTestCase?: boolean,
   sumanTestName?: string
 }
 
-export interface ISumanEachHookDomain extends  ISumanDomain {
+export interface ISumanEachHookDomain extends ISumanDomain {
   sumanEachHook?: boolean,
   sumanEachHookName?: string
 }
 
-export interface ISumanAllHookDomain extends  ISumanDomain {
+export interface ISumanAllHookDomain extends ISumanDomain {
   sumanAllHook?: boolean,
   sumanAllHookName?: string
 }
-
 
 export declare enum BrowserTypes {
   Firefox,

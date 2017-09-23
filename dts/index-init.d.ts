@@ -9,7 +9,6 @@ export interface IIntegrantsMessage {
   val: string
 }
 
-
 export interface ICreateOpts {
   delay: boolean,
   skip: boolean,
@@ -17,7 +16,6 @@ export interface ICreateOpts {
 }
 
 export type TCreateHook = (...args: any[]) => void;
-
 
 export interface ISumanModuleExtended extends NodeModule {
   testSuiteQueue?: Array<Function>,
@@ -40,6 +38,7 @@ export interface IInitOpts {
 
 export interface IIoCData {
   $pre?: Object;
+
   [key: string]: any;
 }
 
@@ -47,12 +46,15 @@ export declare type TConfigOverride = Partial<ISumanConfig>;
 
 export interface IStartCreate {
   (desc: string, opts: IDescribeOpts, arr?: Array<string | TDescribeHook>, fn?: TCreateHook): void;
+
   delay?: IDescribeFn;
   skip?: IDescribeFn;
   only?: IDescribeFn;
 }
+
 export interface IInit {
   (module: ISumanModuleExtended, opts?: IInitOpts, confOverride?: TConfigOverride): IStartCreate;
+
   $ingletonian?: any;
   tooLate?: boolean;
 }

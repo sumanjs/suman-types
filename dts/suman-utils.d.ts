@@ -18,7 +18,6 @@ export interface IOpts {
   all?: boolean
 }
 
-
 export interface IMapValue {
   [key: string]: boolean,
 

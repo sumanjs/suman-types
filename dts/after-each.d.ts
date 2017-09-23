@@ -3,13 +3,14 @@ import {Observable} from "rxjs/Observable";
 import {Subscriber} from "rxjs/Subscriber";
 import EventEmitter = NodeJS.EventEmitter;
 
-
 type SubsetOfAfterEachOpts = Partial<IAfterEachOpts>;
-type IAfterEachFnArgTypes = SubsetOfAfterEachOpts | TAfterEachHook | Array<string | SubsetOfAfterEachOpts | TAfterEachHook>;
+type IAfterEachFnArgTypes = SubsetOfAfterEachOpts | TAfterEachHook 
+  | Array<string | SubsetOfAfterEachOpts | TAfterEachHook>;
 
 export interface IAfterEachFn {
   // (desc?: string; opts?: IAfterOpts; fn?: TAfterEachHook): void;
   (name: string, ...args: IAfterEachFnArgTypes[]): void;
+
   cb?: IAfterEachFn;
   skip?: IAfterEachFn
 }
