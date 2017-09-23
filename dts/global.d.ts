@@ -2,9 +2,10 @@ import Global = NodeJS.Global;
 import Domain = NodeJS.Domain;
 import {ITestSuite} from "./test-suite";
 import EventEmitter = NodeJS.EventEmitter;
-import {ISuman} from "./suman";
+import {ISuman, ITableDataCallbackObj} from "./suman";
 import {IMapValue} from "suman-utils";
-import {ITableDataCallbackObj} from "../lib/suman";
+
+
 
 
 export interface IntegrantHashKeyVals {
