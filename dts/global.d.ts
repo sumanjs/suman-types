@@ -95,6 +95,8 @@ export interface ISumanOpts {
   bail: boolean,
   series: boolean,
   parallel: boolean
+  allow_skip: boolean,
+  allow_only: boolean,
 
   ///// above this line may need fixin'
 
