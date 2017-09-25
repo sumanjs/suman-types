@@ -97,6 +97,7 @@ export interface ISumanOpts {
   parallel: boolean
   allow_skip: boolean,
   allow_only: boolean,
+  debug_hooks: boolean,
 
   ///// above this line may need fixin'
 
