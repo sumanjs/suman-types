@@ -12,6 +12,10 @@ import AssertStatic = Chai.AssertStatic;
 
 /////////////////////////////////////////////////////////////////////
 
+export interface IAcceptableOptions {
+  [key: string]: true
+}
+
 export type TestSuiteGetterFn <T> = () => Array<T>;
 
 export interface IAssertObj {

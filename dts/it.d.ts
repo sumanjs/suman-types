@@ -26,7 +26,7 @@ export interface ITestDataObj {
   mode?: string,
   delay?: number,
   cb?: boolean,
-  type?: 'it-standard',
+  type: 'it/test-case',
   timeout?: number,
   desc: string,
   fn?: THook,
