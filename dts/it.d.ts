@@ -44,10 +44,11 @@ type ItFnArgs = ISubsetItOpts | ItHook | Array<string | ISubsetItOpts | ItHook>
 
 export interface ItFn {
   (desc: string, ...args: ItFnArgs[]): ITestSuite,
-
   skip?: ItFn,
   only?: ItFn,
-  cb?: ItFn
+  cb?: ItFn,
+  parallel?: ItFn,
+  series?: ItFn
 }
 
 export interface IRawTestData {

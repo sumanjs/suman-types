@@ -4,13 +4,20 @@ import {Observable} from "rxjs/Observable";
 import {IPseudoError} from "./global";
 import EventEmitter = NodeJS.EventEmitter;
 import {ITestSuiteMakerOpts} from "./test-suite-maker";
-import {ITestDataObj} from "./it";
-import {IBeforeEachObj} from "./before-each";
-import {IAfterObj} from "./after";
-import {IAFterEachObj} from "./after-each";
+import {ITestDataObj, ItFn} from "./it";
+import {IBeforeEachFn, IBeforeEachObj} from "./before-each";
+import {IAfterFn, IAfterObj} from "./after";
+import {IAfterEachFn, IAFterEachObj} from "./after-each";
+import {IBeforeFn} from "./before";
+import {IDescribeFn} from "./describe";
 import AssertStatic = Chai.AssertStatic;
 
+
 /////////////////////////////////////////////////////////////////////
+
+
+export type TestSuiteMethodType = IBeforeEachFn | IBeforeFn | ItFn | IDescribeFn | IAfterFn | IAfterEachFn;
+
 
 export interface IAcceptableOptions {
   [key: string]: true
