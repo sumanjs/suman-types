@@ -10,6 +10,7 @@ export interface ITestDataObj {
   errorPlanCount?: string,
   skipped?: boolean,
   skippedDueToOnly?: boolean,
+  fixed: boolean,
   skippedDueToItOnly?: boolean,
   testId: number,
   error?: Error | string,
