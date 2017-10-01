@@ -2,7 +2,7 @@ import Global = NodeJS.Global;
 import Domain = NodeJS.Domain;
 import {ITestSuite} from "./test-suite";
 import EventEmitter = NodeJS.EventEmitter;
-import {ISuman, ITableDataCallbackObj} from "./suman";
+import { ITableDataCallbackObj} from "./suman";
 import {IMapValue} from "./suman-utils";
 
 export interface IntegrantHashKeyVals {
@@ -91,7 +91,6 @@ export interface IMaxMem {
 }
 
 export interface ISumanOpts {
-
 
   transpile: boolean,
   bail: boolean,
@@ -183,9 +182,11 @@ export declare enum BrowserTypes {
 
 export interface ISumanConfWatchPerItem {
   exec: string,
-  confOverride: Partial<ISumanConfig>,
-  include: Array<string | RegExp>,
-  exclude: Array<string | RegExp>
+  confOverride?: Partial<ISumanConfig>,
+  includes?: string | Array<string | RegExp>,
+  excludes?: string | Array<string | RegExp>,
+  include?: string | Array<string | RegExp>,
+  exclude?: string | Array<string | RegExp>,
 }
 
 export interface ISumanConfWatchPer {
@@ -193,7 +194,109 @@ export interface ISumanConfWatchPer {
 }
 
 export interface ISumanConfigWatch {
+  options: Object,
   per: ISumanConfWatchPer
+}
+
+export interface ISumanConf {
+  matchAny: any[];
+  matchNone: RegExp[];
+  matchAll: RegExp[];
+  testDir: string;
+  testSrcDir: string;
+  testTargetDir: string;
+  sumanHelpersDir: string;
+  uniqueAppName: string;
+  browser: string;
+  autoLoggingPre: boolean;
+  autoLoggingPost: boolean;
+  autoLoggingIoc: boolean;
+  autoLoggingHooks: boolean;
+  installSumanExtraDeps: boolean;
+  autoLoggingTestCases: boolean;
+  isLogChildStdout: boolean;
+  isLogChildStderr: boolean;
+  includeSumanGlobalsInPath: boolean;
+  useSumanUtilityPatches: boolean;
+  useTAPOutput: boolean;
+  errorsOnly: boolean;
+  replayErrorsAtRunnerEnd: boolean;
+  logStdoutToTestLogs: boolean;
+  allowArrowFunctionsForTestBlocks: boolean;
+  alwaysUseRunner: boolean;
+  enforceGlobalInstallationOnly: boolean;
+  enforceLocalInstallationOnly: boolean;
+  sourceTopLevelDepsInPackageDotJSON: boolean;
+  enforceTestCaseNames: boolean;
+  enforceBlockNames: boolean;
+  enforceHookNames: boolean;
+  bail: boolean;
+  bailRunner: boolean;
+  useBabelRegister: boolean;
+  transpile: boolean;
+  executeRunnerCWDAtTestFile: boolean;
+  sendStderrToSumanErrLogOnly: boolean;
+  useSuiteNameInTestCaseOutput: boolean;
+  ultraSafe: boolean;
+  verbose: boolean;
+  checkMemoryUsage: boolean;
+  fullStackTraces: boolean;
+  disableAutoOpen: boolean;
+  suppressRunnerOutput: boolean;
+  allowCollectUsageStats: boolean;
+  highestPerformance: boolean;
+  saveLogsForThisManyPastRuns: number;
+  verbosity: number;
+  maxParallelProcesses: number;
+  resultsCapCount: number;
+  resultsCapSize: number;
+  defaultHookTimeout: number;
+  defaultTestCaseTimeout: number;
+  timeoutToSearchForAvailServer: number;
+  defaultDelayFunctionTimeout: number;
+  defaultChildProcessTimeout: number;
+  defaultTestSuiteTimeout: number;
+  expireResultsAfter: number;
+  coverage: {
+    coverageDir: string;
+    nyc: {
+      use: boolean;
+    };
+    istanbul: {};
+  };
+  watch: {
+    '//tests': {
+      'default': {
+        script: (p: any) => string;
+        include: any[];
+        exclude: string[];
+      };
+    };
+    '//project': {
+      'default': {
+        script: string;
+        include: any[];
+        exclude: string[];
+      };
+    };
+  };
+  reporters: {
+    'tap': string;
+  };
+  servers: {
+    '*default': {
+      host: string;
+      port: number;
+    };
+    '###': {
+      host: string;
+      port: number;
+    };
+  };
+  babelRegisterOpts: {
+    ignore: RegExp;
+    extensions: string[];
+  };
 }
 
 export interface ISumanConfig {
