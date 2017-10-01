@@ -91,6 +91,8 @@ export interface IMaxMem {
 }
 
 export interface ISumanOpts {
+
+
   transpile: boolean,
   bail: boolean,
   series: boolean,
