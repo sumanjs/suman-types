@@ -6,6 +6,8 @@ coverage
 
 ### files
 *.DS_Store
+package-lock.json
+yarn.lock
 
 ### matching files
 *.log

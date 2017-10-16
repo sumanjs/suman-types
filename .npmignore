@@ -19,6 +19,7 @@ suman.conf.js
 .npmignore
 .gitignore
 .editorconfig
+yarn.lock
 
 ### negation
 !*.d.ts
