@@ -1,13 +1,11 @@
-import {ITestCaseParam, THook, ITestSuite} from "./test-suite";
+import {ITestCaseParam, THook, ITestSuite, ITestOrHookBase} from "./test-suite";
 import {Observable} from "rxjs/Observable";
 import {Subscriber} from "rxjs/Subscriber";
 import EventEmitter = NodeJS.EventEmitter;
 
-export interface ITestDataObj {
+export interface ITestDataObj extends ITestOrHookBase {
   alreadyInitiated: boolean,
   sumanModulePath?: string,
-  didNotThrowErrorWithExpectedMessage?: string,
-  errorPlanCount?: string,
   skipped?: boolean,
   skippedDueToOnly?: boolean,
   fixed: boolean,
@@ -17,7 +15,6 @@ export interface ITestDataObj {
   errorDisplay?: string,
   stubbed?: boolean,
   data?: IRawTestData,
-  planCountExpected?: number,
   originalOpts?: Object,
   only?: boolean,
   skip?: boolean,
@@ -28,7 +25,6 @@ export interface ITestDataObj {
   delay?: number,
   cb?: boolean,
   type: 'it/test-case',
-  timeout?: number,
   desc: string,
   fn?: THook,
   warningErr?: Error

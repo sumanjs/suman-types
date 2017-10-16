@@ -17,6 +17,7 @@ export interface IGlobalSumanObj {
   // we should execute Suman's in series, that makes it easier to run after.always shutdown, etc
   // which suman represents which Suman is executing at a given time
 
+  activeDomain: Domain,
   currentPaddingCount: ICurrentPaddingCount,
   endLogStream: Function,
   tableResults: Array<ITableDataCallbackObj>,
@@ -35,7 +36,7 @@ export interface IGlobalSumanObj {
   isStrmDrained: boolean,
   drainCallback: Function,
   inceptionLevel?: number,
-  whichSuman: ISuman,
+  whichSuman: any,
   logInfo: Function,
   logWarning: Function,
   logError: Function,

@@ -12,12 +12,9 @@ import {IBeforeFn} from "./before";
 import {IDescribeFn} from "./describe";
 import AssertStatic = Chai.AssertStatic;
 
-
 /////////////////////////////////////////////////////////////////////
 
-
 export type TestSuiteMethodType = IBeforeEachFn | IBeforeFn | ItFn | IDescribeFn | IAfterFn | IAfterEachFn;
-
 
 export interface IAcceptableOptions {
   [key: string]: true
@@ -44,7 +41,7 @@ export interface IHookOrTestCaseParam {
   wrapErrFirst: Function,
   wrapErrorFirst: Function,
   wrap: Function,
-  fatal : Function
+  fatal: Function
   callbackMode: boolean,
   timeout: Function,
   done: Function,
@@ -53,12 +50,14 @@ export interface IHookOrTestCaseParam {
 export interface IHookParam extends IHookOrTestCaseParam {
   // the h in h => {}
   (err?: Error): void,
+
   ctn: Function,
 }
 
 export interface ITestCaseParam extends IHookOrTestCaseParam {
   // the t in t => {}
   (err?: Error): void
+
   skip: Function,
   pass: Function,
   fail: Function
@@ -70,37 +69,37 @@ export type HookRegularMode = (h?: IHookOrTestCaseParam) => Promise<any>;
 export type HookObservableMode = (h?: IHookOrTestCaseParam) => Observable<any>;
 export type HookSubscriberMode = (h?: IHookOrTestCaseParam) => Subscriber<any>;
 export type HookEEMode = (h?: IHookOrTestCaseParam) => EventEmitter;
-
-export type THook = THookCallbackMode |
-  HookRegularMode | HookObservableMode
-  | HookSubscriberMode | HookEEMode
+export type THook = THookCallbackMode | HookRegularMode | HookObservableMode | HookSubscriberMode | HookEEMode
 
 export interface IInjectionObj extends IHookObj {
-  ctx: ITestSuite,
-  timeout: number,
-  desc: string,
-  cb: boolean,
-  throws: RegExp,
-  fatal: boolean,
-  fn: THook,
-  type: string,
-  warningErr: Error
+
 }
 
-export interface IHookObj {
+export interface ITestOrHookBaseEvents {
+  success: string | Array<string>
+  error: string | Array<string>
+}
+
+export interface ITestOrHookBase {
   alreadyInitiated?: boolean,
   desc: string,
   warningErr?: Error,
   errorPlanCount?: string,
-  planCountExpected: number
+  planCountExpected?: number
   throws?: RegExp,
   didNotThrowErrorWithExpectedMessage?: string,
   ctx: ITestSuite,
   timeout: number,
   cb: boolean,
-  fatal: boolean,
   fn: THook,
-  type: string,
+  type: string
+  successEvents: string | Array<string>,
+  errorEvents: string | Array<string>,
+  events: ITestOrHookBaseEvents
+}
+
+export interface IHookObj extends ITestOrHookBase {
+  fatal: boolean
 }
 
 export interface IOnceHookObj extends IHookObj {
@@ -141,6 +140,7 @@ export interface ITestSuiteBase {
 export interface ITestSuite extends ITestSuiteBase {
 
   new (opts: ITestSuiteMakerOpts): void;
+
   [key: string]: any,
 
   // object
@@ -161,7 +161,6 @@ export interface ITestSuite extends ITestSuiteBase {
   desc: string,
   filename: string,
   fileName: string
-
 
   // function
   _run?: Function,
