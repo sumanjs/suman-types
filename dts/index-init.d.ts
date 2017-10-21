@@ -1,7 +1,7 @@
 import EventEmitter = NodeJS.EventEmitter;
 
 import {IDescribeFn, IDescribeOpts, TDescribeHook} from "./describe";
-import {ISumanConfig} from "./global";
+import {ISumanConfig, ISumanOpts} from "./global";
 
 export interface IIntegrantsMessage {
   data: string,
@@ -15,20 +15,19 @@ export interface ICreateOpts {
   only: boolean
 }
 
+// we don't know any of the args because of dependency injection
 export type TCreateHook = (...args: any[]) => void;
 
 export interface ISumanModuleExtended extends NodeModule {
-  testSuiteQueue?: Array<Function>,
   sumanInitted?: boolean
 }
 
 export interface IInitOpts {
-  export?: boolean;
   __expectedExitCode?: number;
+  export?: boolean;
   pre?: Array<string>;
   integrants?: Array<string>;
   series?: boolean;
-  writable?: EventEmitter;
   timeout?: number;
   post?: Array<any>;
   iocData?: IIoCData;
@@ -37,16 +36,23 @@ export interface IInitOpts {
 
 export interface IIoCData {
   $pre?: Object;
+
   [key: string]: any;
 }
 
-export declare type TConfigOverride = Partial<ISumanConfig>;
-
-export interface IStartCreate {
-  (desc: string, opts: IDescribeOpts, arr?: Array<string | TDescribeHook>, fn?: TCreateHook): void;
+export interface IInitRet {
+  Test: IInitRet,
+  create: IStartCreate
+  file: string,
+  parent: string
 }
 
-export interface IInit {
-  (module: ISumanModuleExtended, opts?: IInitOpts, confOverride?: TConfigOverride): IStartCreate;
+export interface IStartCreate {
+  (desc: string, opts: IDescribeOpts, arr?: Array<string | IDescribeOpts | TDescribeHook>, fn?: TCreateHook): void;
+
   tooLate?: boolean;
+}
+
+export interface IInitFn {
+  (module: ISumanModuleExtended, opts?: IInitOpts, sumanOptsOverride?: Partial<ISumanOpts>, sumanConfigOverride?: Partial<ISumanConfig>): IInitRet;
 }

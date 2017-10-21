@@ -50,14 +50,12 @@ export interface IHookOrTestCaseParam {
 export interface IHookParam extends IHookOrTestCaseParam {
   // the h in h => {}
   (err?: Error): void,
-
   ctn: Function,
 }
 
 export interface ITestCaseParam extends IHookOrTestCaseParam {
   // the t in t => {}
   (err?: Error): void
-
   skip: Function,
   pass: Function,
   fail: Function
@@ -164,8 +162,8 @@ export interface ITestSuite extends ITestSuiteBase {
 
   // function
   _run?: Function,
-  __invokeChildren?: Function,
-  __bindExtras: Function
+  invokeChildren?: Function,
+  bindExtras: Function
 
 }
 
