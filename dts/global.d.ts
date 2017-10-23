@@ -4,6 +4,7 @@ import {ITestSuite} from "./test-suite";
 import EventEmitter = NodeJS.EventEmitter;
 import { ITableDataCallbackObj} from "./suman";
 import {IMapValue} from "./suman-utils";
+import {IRet} from './reporters';
 
 export interface IntegrantHashKeyVals {
   [key: string]: any
@@ -13,10 +14,20 @@ export interface ICurrentPaddingCount {
   val: number
 }
 
+export interface ISumanLogger {
+   info: Function,
+   error: Function,
+   warning: Function,
+   good: Function,
+   verygood: Function
+}
+
 export interface IGlobalSumanObj {
   // we should execute Suman's in series, that makes it easier to run after.always shutdown, etc
   // which suman represents which Suman is executing at a given time
 
+  $staticIoc: Object,
+  reporterRets: Array<IRet>,
   activeDomain: Domain,
   currentPaddingCount: ICurrentPaddingCount,
   endLogStream: Function,
@@ -37,10 +48,7 @@ export interface IGlobalSumanObj {
   drainCallback: Function,
   inceptionLevel?: number,
   whichSuman: any,
-  logInfo: Function,
-  logWarning: Function,
-  logError: Function,
-  log: Function,
+  log: ISumanLogger,
   $pre: Object,
   afterAlwaysEngaged: boolean,
   timestamp: Number,
@@ -57,12 +65,10 @@ export interface IGlobalSumanObj {
   describeOnlyIsTriggered: boolean,
   sumanTestFile: string,
   userData: Object,
-  useSumanD: boolean,
   iocConfiguration: Object,
   weAreDebugging: boolean,
   checkTestErrorLog: boolean,
-  _writeLog: Function,
-  _sumanIndirect: boolean,
+  writeLog: Function,
   expectedExitCode: number,
   oncePreKeys: Array<string>,
   oncePostKeys: Array<string>,
@@ -80,7 +86,6 @@ export interface IGlobalSumanObj {
   usingRunner: boolean,
   sumanInitCalled: boolean,
   sumanInitStartDate: number,
-  _currentModule: string,
   SUMAN_TEST: string,
   sumanInitTime: number,
   expectedTimeout: number
