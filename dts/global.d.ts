@@ -5,6 +5,7 @@ import EventEmitter = NodeJS.EventEmitter;
 import { ITableDataCallbackObj} from "./suman";
 import {IMapValue} from "./suman-utils";
 import {IRet} from './reporters';
+import {AsyncQueue} from 'async';
 
 export interface IntegrantHashKeyVals {
   [key: string]: any
@@ -26,6 +27,7 @@ export interface IGlobalSumanObj {
   // we should execute Suman's in series, that makes it easier to run after.always shutdown, etc
   // which suman represents which Suman is executing at a given time
 
+  tsrq: AsyncQueue<Function>,
   $staticIoc: Object,
   reporterRets: Array<IRet>,
   activeDomain: Domain,

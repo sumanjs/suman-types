@@ -25,6 +25,7 @@
   },
   "homepage": "https://github.com/ORESoftware/suman-types#readme",
   "devDependencies": {
+    "@types/async": "^2.0.44",
     "@types/core-js": "^0.9.43",
     "@types/node": "^8.0.28",
     "rxjs": "^5.4.3"
