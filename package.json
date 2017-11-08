@@ -1,6 +1,6 @@
 {
   "name": "suman-types",
-  "version": "0.0.1003",
+  "version": "0.0.1004",
   "description": "Typings / types for Suman projects.",
   "typings": "types/suman/index.d.ts",
   "types": "types/suman/index.d.ts",
