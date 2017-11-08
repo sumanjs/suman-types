@@ -1,29 +1,31 @@
 {
   "name": "suman-types",
   "version": "0.0.1004",
-  "description": "Typings / types for Suman projects.",
-  "typings": "types/suman/index.d.ts",
-  "types": "types/suman/index.d.ts",
+  "description": "TypeScript type declarations for various SumanJS projects.",
+  "typings": "dts/*",
+  "types": "dts/*",
   "scripts": {
     "test": "suman"
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/ORESoftware/suman-types.git"
+    "url": "git+https://github.com/sumanjs/suman-types.git"
   },
   "keywords": [
     "suman",
+    "sumanjs",
     "test",
     "typings",
+    "tsc",
     "types",
     "typescript"
   ],
   "author": "Olegzandr VD",
-  "license": "ISC",
+  "license": "MIT",
   "bugs": {
-    "url": "https://github.com/ORESoftware/suman-types/issues"
+    "url": "https://github.com/sumanjs/suman-types/issues"
   },
-  "homepage": "https://github.com/ORESoftware/suman-types#readme",
+  "homepage": "https://github.com/sumanjs/suman-types#readme",
   "devDependencies": {
     "@types/async": "^2.0.44",
     "@types/core-js": "^0.9.43",

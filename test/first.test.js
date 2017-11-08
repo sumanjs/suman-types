@@ -2,16 +2,15 @@
 'use strict';
 
 const suman = require('suman');
-const Test = suman.init(module);
+const {Test} = suman.init(module);
 
 ///////////////////////////////////////////////////////////////////////
 
 Test.create(function (assert, describe, before, beforeEach, after, afterEach, it) {
 
   it('sync test', t => {
-       assert(true);
+    assert(true);
   });
-
 
   it('async test', t => {
     return Promise.resolve('foo');
