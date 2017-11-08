@@ -1,15 +1,13 @@
-
 import EventEmitter = NodeJS.EventEmitter;
 import {ISumanOpts} from "./global";
 
-export interface IResultsObj{
+export interface IResultsObj {
   n: number,
   passes: number,
   failures: number,
   skipped: number,
   stubbed: number
 }
-
 
 export interface IRet {
   results: IResultsObj,
@@ -19,11 +17,9 @@ export interface IRet {
   completionHook?: Function
 }
 
-
 export interface IRetContainer {
   ret: IRet
 }
-
 
 export interface IExpectedCounts {
   TEST_CASE_FAIL: number,
@@ -32,9 +28,8 @@ export interface IExpectedCounts {
   TEST_CASE_STUBBED: number
 }
 
-
 export type IReporterLoadFnPre =
-  ( s: EventEmitter, sumanOpts: ISumanOpts, expectations: IExpectedCounts, client: SocketIOClient.Socket) => IRet;
+  (s: EventEmitter, sumanOpts: ISumanOpts, expectations?: IExpectedCounts, client?: SocketIOClient.Socket) => IRet;
 
 export type IReporterLoadFn =
-  (retContainer: IRetContainer, s: EventEmitter, sumanOpts: ISumanOpts, expectations: IExpectedCounts, client: SocketIOClient.Socket) => IRet;
+  (retContainer: IRetContainer, s: EventEmitter, sumanOpts: ISumanOpts, expectations?: IExpectedCounts, client?: SocketIOClient.Socket) => IRet;
