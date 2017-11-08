@@ -33,4 +33,8 @@ export interface IExpectedCounts {
 }
 
 
-export type IReporterLoadFn = (retContainer: IRetContainer, s: EventEmitter, sumanOpts: ISumanOpts, client: SocketIOClient.Socket) => void;
+export type IReporterLoadFnPre =
+  ( s: EventEmitter, sumanOpts: ISumanOpts, expectations: IExpectedCounts, client: SocketIOClient.Socket) => IRet;
+
+export type IReporterLoadFn =
+  (retContainer: IRetContainer, s: EventEmitter, sumanOpts: ISumanOpts, expectations: IExpectedCounts, client: SocketIOClient.Socket) => IRet;
