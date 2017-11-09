@@ -32,4 +32,6 @@ export type IReporterLoadFnPre =
   (s: EventEmitter, sumanOpts: ISumanOpts, expectations?: IExpectedCounts, client?: SocketIOClient.Socket) => IRet;
 
 export type IReporterLoadFn =
-  (retContainer: IRetContainer, s: EventEmitter, sumanOpts: ISumanOpts, expectations?: IExpectedCounts, client?: SocketIOClient.Socket) => IRet;
+  (retContainer: IRetContainer, results: IResultsObj,
+   s: EventEmitter, sumanOpts: ISumanOpts, expectations?: IExpectedCounts,
+   client?: SocketIOClient.Socket) => IRet;
