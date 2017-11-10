@@ -1,5 +1,6 @@
 import EventEmitter = NodeJS.EventEmitter;
 import {ISumanOpts} from "./global";
+import {ITestSuite} from "./test-suite";
 
 export interface IResultsObj {
   n: number,
@@ -35,3 +36,10 @@ export type IReporterLoadFn =
   (retContainer: IRetContainer, results: IResultsObj,
    s: EventEmitter, sumanOpts: ISumanOpts, expectations?: IExpectedCounts,
    client?: SocketIOClient.Socket) => IRet;
+
+
+export interface ITAPJSONTestCase {
+  testCase: ITestSuite,
+  padding: number
+  messageType: string
+}
