@@ -24,7 +24,6 @@ export interface ISumanModuleExtended extends NodeModule {
 
 export interface IInitOpts {
   __expectedExitCode?: number;
-  export?: boolean;
   pre?: Array<string>;
   integrants?: Array<string>;
   series?: boolean;
@@ -48,7 +47,7 @@ export interface IInitRet {
 }
 
 export interface IStartCreate {
-  (desc: string, opts: IDescribeOpts, arr?: Array<string | IDescribeOpts | TDescribeHook>, fn?: TCreateHook): void;
+  (desc?: string, opts?: IDescribeOpts, arr?: Array<string | IDescribeOpts | TCreateHook>, fn?: TCreateHook): void;
 
   tooLate?: boolean;
 }

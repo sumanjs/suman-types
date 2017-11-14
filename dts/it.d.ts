@@ -1,4 +1,4 @@
-import {ITestCaseParam, THook, ITestSuite, ITestOrHookBase} from "./test-suite";
+import {ITestCaseParam, THook, ITestSuite, ITestOrHookBase, IAllOpts} from "./test-suite";
 import {Observable} from "rxjs/Observable";
 import {Subscriber} from "rxjs/Subscriber";
 import EventEmitter = NodeJS.EventEmitter;
@@ -52,13 +52,10 @@ export interface IRawTestData {
   //empty
 }
 
-export interface IItOpts {
-  __preParsed: boolean,
-  parallel: boolean,
-  series: boolean,
-  serial: boolean,
-  mode: string,
-  delay: number
+export interface IItOpts extends IAllOpts {
+  cb: boolean;
+  plan: number,
+  throws: RegExp,
 }
 
 export type ItHookCallbackMode = (t: ITestCaseParam) => void;

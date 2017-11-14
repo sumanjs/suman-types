@@ -9,11 +9,8 @@ export interface IInjectFn {
 
 export interface IInjectOpts extends IAllOpts {
   cb: boolean;
-  skip: boolean,
   plan: number,
-  throws: RegExp,
-
-
+  throws: RegExp
 }
 
 export interface IInjectHook {

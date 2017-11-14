@@ -1,3 +1,4 @@
+// dts
 import Timer = NodeJS.Timer;
 import {Subscriber} from "rxjs/Subscriber";
 import {Observable} from "rxjs/Observable";
@@ -31,7 +32,13 @@ export interface ITimerObj {
 }
 
 export interface IAllOpts {
-  __preParsed: boolean
+  __preParsed?: boolean,
+  mode: string,
+  parallel: boolean,
+  series: boolean,
+  serial: boolean,
+  skip: boolean,
+  only: boolean
 }
 
 export interface IHookOrTestCaseParam {

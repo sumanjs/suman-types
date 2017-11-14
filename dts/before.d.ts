@@ -1,7 +1,7 @@
 import {Observable} from "rxjs/Observable";
 import {Subscriber} from "rxjs/Subscriber";
 import EventEmitter = NodeJS.EventEmitter;
-import {IHookParam, IOnceHookObj} from "./test-suite";
+import {IAllOpts, IHookParam, IOnceHookObj} from "./test-suite";
 
 export interface IBeforeObj extends IOnceHookObj {
   // currently has no extra properties beyond IOnceHookObj
@@ -17,9 +17,7 @@ export interface IBeforeFn {
   skip?: IBeforeFn;
 }
 
-export interface IBeforeOpts {
-  __preParsed?: boolean;
-  skip: boolean;
+export interface IBeforeOpts extends IAllOpts {
   timeout: number;
   fatal: boolean;
   cb: boolean;
