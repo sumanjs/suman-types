@@ -104,7 +104,8 @@ export interface ITestOrHookBase {
 }
 
 export interface IHookObj extends ITestOrHookBase {
-  fatal: boolean
+  fatal: boolean,
+  retries: number
 }
 
 export interface IOnceHookObj extends IHookObj {
