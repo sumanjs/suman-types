@@ -1,4 +1,5 @@
-import {IAllOpts} from "./test-suite";
+import {IAllOpts, ITestSuite} from "./test-suite";
+
 type IDescribeFnArgTypes = IDescribeOpts | TDescribeHook | Array<string | TDescribeHook>;
 
 export interface IDescribeFn {
@@ -15,4 +16,4 @@ export interface IDescribeOpts extends IAllOpts {
 
 }
 
-export type TDescribeHook = (...args: any[]) => void;
+export type TDescribeHook = (b: ITestSuite, ...args: any[]) => void;
