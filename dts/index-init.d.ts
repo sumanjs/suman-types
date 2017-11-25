@@ -2,6 +2,7 @@ import EventEmitter = NodeJS.EventEmitter;
 
 import {IDescribeFn, IDescribeOpts, TDescribeHook} from "./describe";
 import {ISumanConfig, ISumanOpts} from "./global";
+import {DefineObject, DefineObjectContext} from 'suman/lib/test-suite-helpers/define-options-classes';
 
 export interface IIntegrantsMessage {
   data: string,
@@ -35,15 +36,20 @@ export interface IInitOpts {
 
 export interface IIoCData {
   $pre?: Object;
-
   [key: string]: any;
 }
+
+
+export type TDefineCallback = (o: DefineObjectContext) => void;
+
+export type TDefine = (desc?: string | TDefineCallback, f?: TDefineCallback) => DefineObjectContext;
 
 export interface IInitRet {
   Test: IInitRet,
   create: IStartCreate
   file: string,
-  parent: string
+  parent: string,
+  define: TDefine
 }
 
 export interface IStartCreate {
