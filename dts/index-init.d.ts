@@ -2,7 +2,7 @@ import EventEmitter = NodeJS.EventEmitter;
 
 import {IDescribeFn, IDescribeOpts, TDescribeHook} from "./describe";
 import {ISumanConfig, ISumanOpts} from "./global";
-import {DefineObject, DefineObjectContext} from 'suman/lib/test-suite-helpers/define-options-classes';
+import {DefineObjectContext} from 'suman/lib/test-suite-helpers/define-options-classes';
 
 export interface IIntegrantsMessage {
   data: string,

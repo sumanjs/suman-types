@@ -2,6 +2,8 @@ import {ITestCaseParam, THook, ITestSuite, ITestOrHookBase, IAllOpts} from "./te
 import {Observable} from "rxjs/Observable";
 import {Subscriber} from "rxjs/Subscriber";
 import EventEmitter = NodeJS.EventEmitter;
+import {DefineObjectTestCase} from 'suman/lib/test-suite-helpers/define-options-classes';
+
 
 export interface ITestDataObj extends ITestOrHookBase {
   alreadyInitiated: boolean,
@@ -39,13 +41,18 @@ export interface ITestDataObj extends ITestOrHookBase {
 type ISubsetItOpts = Partial<IItOpts>;
 type ItFnArgs = ISubsetItOpts | ItHook | Array<string | ISubsetItOpts | ItHook>
 
+
+export type TDefineCallback = (o: DefineObjectTestCase) => void;
+export type TDefine = (desc?: string | TDefineCallback, f?: TDefineCallback) => DefineObjectTestCase;
+
 export interface ItFn {
   (desc: string, ...args: ItFnArgs[]): ITestSuite,
   skip?: ItFn,
   only?: ItFn,
   cb?: ItFn,
   parallel?: ItFn,
-  series?: ItFn
+  series?: ItFn,
+  define: TDefine
 }
 
 export interface IRawTestData {
