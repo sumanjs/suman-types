@@ -3,6 +3,7 @@ import EventEmitter = NodeJS.EventEmitter;
 import {IDescribeFn, IDescribeOpts, TDescribeHook} from "./describe";
 import {ISumanConfig, ISumanOpts} from "./global";
 import {DefineObjectContext} from 'suman/lib/test-suite-helpers/define-options-classes';
+import {ITestSuite} from "./test-suite";
 
 export interface IIntegrantsMessage {
   data: string,
@@ -17,7 +18,7 @@ export interface ICreateOpts {
 }
 
 // we don't know any of the args because of dependency injection
-export type TCreateHook = (...args: any[]) => void;
+export type TCreateHook = (b: ITestSuite, ...args: any[]) => void;
 
 export interface ISumanModuleExtended extends NodeModule {
   sumanInitted?: boolean
@@ -39,7 +40,6 @@ export interface IIoCData {
   [key: string]: any;
 }
 
-
 export type TDefineCallback = (o: DefineObjectContext) => void;
 
 export type TDefine = (desc?: string | TDefineCallback, f?: TDefineCallback) => DefineObjectContext;
@@ -52,11 +52,54 @@ export interface IInitRet {
   define: TDefine
 }
 
-export interface IStartCreate {
-  (desc?: string, opts?: IDescribeOpts, arr?: Array<string | IDescribeOpts | TCreateHook>, fn?: TCreateHook): void;
+export type TArray = Array<string | IDescribeOpts | TCreateHook>;
 
+export interface IStartCreate1 {
+  (desc: string, opts: IDescribeOpts, arr: TArray): void;
   tooLate?: boolean;
 }
+
+export interface IStartCreate2 {
+  (opts: IDescribeOpts, arr: TArray): void;
+  tooLate?: boolean;
+}
+
+export interface IStartCreate3 {
+  (opts: IDescribeOpts, fn: TCreateHook): void;
+  tooLate?: boolean;
+}
+
+export interface IStartCreate4 {
+  (arr: Array<string | IDescribeOpts | TCreateHook>): void;
+  tooLate?: boolean;
+}
+
+export interface IStartCreate5 {
+  (fn: TCreateHook): void;
+  tooLate?: boolean;
+}
+
+export interface IStartCreate6 {
+  (desc: string, arr: TArray): void;
+  tooLate?: boolean;
+}
+
+export interface IStartCreate7 {
+  (desc: string, fn: TCreateHook): void;
+  tooLate?: boolean;
+}
+
+export type IStartCreateOld = IStartCreate1 | IStartCreate2 | IStartCreate3 |
+  IStartCreate4 | IStartCreate5 | IStartCreate6 | IStartCreate7;
+
+export interface IStartCreate {
+  (desc: string | IDescribeOpts | TCreateHook | TArray,
+   opts?: IDescribeOpts | TCreateHook | TArray,
+   arr?: TArray | TCreateHook,
+   ): void;
+  tooLate?: boolean;
+}
+
 
 export interface IInitFn {
   (module: ISumanModuleExtended, opts?: IInitOpts, sumanOptsOverride?: Partial<ISumanOpts>, sumanConfigOverride?: Partial<ISumanConfig>): IInitRet;
