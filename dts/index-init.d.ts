@@ -95,11 +95,9 @@ export type IStartCreateOld = IStartCreate1 | IStartCreate2 | IStartCreate3 |
 export interface IStartCreate {
   (desc: string | IDescribeOpts | TCreateHook | TArray,
    opts?: IDescribeOpts | TCreateHook | TArray,
-   arr?: TArray | TCreateHook,
-   ): void;
+   arr?: TArray | TCreateHook): void;
   tooLate?: boolean;
 }
-
 
 export interface IInitFn {
   (module: ISumanModuleExtended, opts?: IInitOpts, sumanOptsOverride?: Partial<ISumanOpts>, sumanConfigOverride?: Partial<ISumanConfig>): IInitRet;
