@@ -69,21 +69,32 @@ export interface ITestCaseParam extends IHookOrTestCaseParam {
 }
 
 export type IHandleError = (e: IPseudoError) => void;
-export type THookCallbackMode = (h: IHookOrTestCaseParam) => void;
-export type HookRegularMode = (h?: IHookOrTestCaseParam) => Promise<any>;
-export type HookObservableMode = (h?: IHookOrTestCaseParam) => Observable<any>;
-export type HookSubscriberMode = (h?: IHookOrTestCaseParam) => Subscriber<any>;
-export type HookEEMode = (h?: IHookOrTestCaseParam) => EventEmitter;
-export type THook = THookCallbackMode | HookRegularMode | HookObservableMode | HookSubscriberMode | HookEEMode
+export type THookCallbackMode = (x: IHookOrTestCaseParam) => void;
+export type HookRegularMode = (x: IHookOrTestCaseParam) => Promise<any>;
+export type HookObservableMode = (x: IHookOrTestCaseParam) => Observable<any>;
+export type HookSubscriberMode = (x: IHookOrTestCaseParam) => Subscriber<any>;
+export type HookEEMode = (x: IHookOrTestCaseParam) => EventEmitter;
+
+
+export type THook =
+  THookCallbackMode |
+  HookRegularMode |
+  HookObservableMode |
+  HookSubscriberMode |
+  HookEEMode;
+
+
 
 export interface IInjectionObj extends IHookObj {
 
 }
 
+
 export interface ITestOrHookBaseEvents {
   success: string | Array<string>
   error: string | Array<string>
 }
+
 
 export interface ITestOrHookBase {
   alreadyInitiated?: boolean,
@@ -103,10 +114,12 @@ export interface ITestOrHookBase {
   events: ITestOrHookBaseEvents
 }
 
+
 export interface IHookObj extends ITestOrHookBase {
   fatal: boolean,
   retries: number
 }
+
 
 export interface IOnceHookObj extends IHookObj {
 

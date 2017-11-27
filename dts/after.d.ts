@@ -7,6 +7,7 @@ import {DefineObjectAllHook} from 'suman/lib/test-suite-helpers/define-options-c
 type SubsetOfAfterOpts = Partial<IAfterOpts>;
 type IAfterFnArgTypes = SubsetOfAfterOpts | TAfterHook | Array<string | SubsetOfAfterOpts | TAfterHook>;
 
+
 export type TDefineCallback = (o: DefineObjectAllHook) => void;
 export type TDefine = (desc?: string | TDefineCallback, f?: TDefineCallback) => DefineObjectAllHook;
 
@@ -38,10 +39,10 @@ export interface IAfterOpts {
 }
 
 export type AfterHookCallbackMode = (h: IHookParam) => void;
-export type AfterHookRegularMode = (h?: IHookParam) => Promise<any>;
-export type AfterHookObservableMode = (h?: IHookParam) => Observable<any>;
-export type AfterHookSubscriberMode = (h?: IHookParam) => Subscriber<any>;
-export type AfterHookEEMode = (h?: IHookParam) => EventEmitter;
+export type AfterHookRegularMode = (h: IHookParam) => Promise<any>;
+export type AfterHookObservableMode = (h: IHookParam) => Observable<any>;
+export type AfterHookSubscriberMode = (h: IHookParam) => Subscriber<any>;
+export type AfterHookEEMode = (h: IHookParam) => EventEmitter;
 
 export type TAfterHook =
   AfterHookCallbackMode |

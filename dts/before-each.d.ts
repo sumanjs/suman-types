@@ -39,10 +39,10 @@ export interface IBeforeEachOpts {
 
 
 export type BeforeEachHookCallbackMode = (h: IHookParam) => void;
-export type BeforeEachHookRegularMode = (h?: IHookParam) => Promise<any>;
-export type BeforeEachHookObservableMode = (h?: IHookParam) => Observable<any>;
-export type BeforeEachHookSubscriberMode = (h?: IHookParam) => Subscriber<any>;
-export type BeforeEachHookEEMode = (h?: IHookParam) => EventEmitter;
+export type BeforeEachHookRegularMode = (h: IHookParam) => Promise<any>;
+export type BeforeEachHookObservableMode = (h: IHookParam) => Observable<any>;
+export type BeforeEachHookSubscriberMode = (h: IHookParam) => Subscriber<any>;
+export type BeforeEachHookEEMode = (h: IHookParam) => EventEmitter;
 
 
 export type TBeforeEachHook =

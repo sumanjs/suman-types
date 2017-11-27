@@ -39,10 +39,10 @@ export interface IAFterEachObj extends IEachHookObj {
 }
 
 type AfterEachHookCallbackMode = (h: IHookParam) => void;
-type AfterEachHookRegularMode = (h?: IHookParam) => Promise<any>;
-type AfterEachHookObservableMode = (h?: IHookParam) => Observable<any>;
-type AfterEachHookSubscriberMode = (h?: IHookParam) => Subscriber<any>;
-type AfterEachHookEEMode = (h?: IHookParam) => EventEmitter;
+type AfterEachHookRegularMode = (h: IHookParam) => Promise<any>;
+type AfterEachHookObservableMode = (h: IHookParam) => Observable<any>;
+type AfterEachHookSubscriberMode = (h: IHookParam) => Subscriber<any>;
+type AfterEachHookEEMode = (h: IHookParam) => EventEmitter;
 
 export type TAfterEachHook =
   AfterEachHookCallbackMode |

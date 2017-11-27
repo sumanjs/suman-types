@@ -1,9 +1,8 @@
-import {ITestCaseParam, THook, ITestSuite, ITestOrHookBase, IAllOpts} from "./test-suite";
-import {Observable} from "rxjs/Observable";
-import {Subscriber} from "rxjs/Subscriber";
+import { ITestCaseParam, THook, ITestSuite, ITestOrHookBase, IAllOpts } from "./test-suite";
+import { Observable } from "rxjs/Observable";
+import { Subscriber } from "rxjs/Subscriber";
 import EventEmitter = NodeJS.EventEmitter;
-import {DefineObjectTestCase} from 'suman/lib/test-suite-helpers/define-options-classes';
-
+import { DefineObjectTestCase } from 'suman/lib/test-suite-helpers/define-options-classes';
 
 export interface ITestDataObj extends ITestOrHookBase {
   alreadyInitiated: boolean,
@@ -39,14 +38,15 @@ export interface ITestDataObj extends ITestOrHookBase {
 }
 
 type ISubsetItOpts = Partial<IItOpts>;
-type ItFnArgs = ISubsetItOpts | ItHook | Array<string | ISubsetItOpts | ItHook>
-
+type ItFnArgs1 = ISubsetItOpts | ItHook | Array<string | ISubsetItOpts | ItHook>
+type ItFnArgs2 = ItHook | Array<string | ISubsetItOpts | ItHook>
 
 export type TDefineCallback = (o: DefineObjectTestCase) => void;
 export type TDefine = (desc?: string | TDefineCallback, f?: TDefineCallback) => DefineObjectTestCase;
 
 export interface ItFn {
-  (desc: string, ...args: ItFnArgs[]): ITestSuite,
+  // (desc: string, ...args: ItFnArgs[]): ITestSuite,
+  (desc: string, o: ItFnArgs1, f?: ItFnArgs2): void,
   skip?: ItFn,
   only?: ItFn,
   cb?: ItFn,
@@ -66,10 +66,16 @@ export interface IItOpts extends IAllOpts {
 }
 
 export type ItHookCallbackMode = (t: ITestCaseParam) => void;
-export type ItHookRegularMode = (t?: ITestCaseParam) => Promise<any>;
-export type ItHookObservableMode = (t?: ITestCaseParam) => Observable<any>;
-export type ItHookSubscriberMode = (t?: ITestCaseParam) => Subscriber<any>;
-export type ItHookEEMode = (t?: ITestCaseParam) => EventEmitter;
+export type ItHookRegularMode = (t: ITestCaseParam) => Promise<any>;
+export type ItHookObservableMode = (t: ITestCaseParam) => Observable<any>;
+export type ItHookSubscriberMode = (t: ITestCaseParam) => Subscriber<any>;
+export type ItHookEEMode = (t: ITestCaseParam) => EventEmitter;
 
-export type ItHook = ItHookCallbackMode | ItHookRegularMode |
-  ItHookObservableMode | ItHookSubscriberMode | ItHookEEMode;
+export type ItHook = (t: ITestCaseParam) => any;
+
+export type ItHookOriginal =
+  ItHookCallbackMode |
+  ItHookRegularMode |
+  ItHookObservableMode |
+  ItHookSubscriberMode |
+  ItHookEEMode;
