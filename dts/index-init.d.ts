@@ -40,8 +40,7 @@ export interface IIoCData {
   [key: string]: any;
 }
 
-export type TDefineCallback = (o: DefineObjectContext) => void;
-
+export type TDefineCallback = (o: DefineObjectContext) => DefineObjectContext | void;
 export type TDefine = (desc?: string | TDefineCallback, f?: TDefineCallback) => DefineObjectContext;
 
 export interface IInitRet {

@@ -28,9 +28,11 @@
   "homepage": "https://github.com/sumanjs/suman-types#readme",
   "devDependencies": {
     "@types/async": "^2.0.44",
+    "@types/chai": "^4.0.7",
     "@types/core-js": "^0.9.43",
     "@types/node": "^8.0.28",
     "@types/socket.io-client": "^1.4.31",
+    "chai": "^4.1.2",
     "rxjs": "^5.4.3"
   }
 }

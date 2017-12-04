@@ -11,7 +11,8 @@ import {IAfterFn, IAfterObj} from "./after";
 import {IAfterEachFn, IAFterEachObj} from "./after-each";
 import {IBeforeFn} from "./before";
 import {IDescribeFn} from "./describe";
-import AssertStatic = Chai.AssertStatic;
+import * as chai from 'chai';
+
 
 /////////////////////////////////////////////////////////////////////
 
@@ -42,7 +43,6 @@ export interface IAllOpts {
 }
 
 export interface IHookOrTestCaseParam {
-  assert: AssertStatic,
   slow: Function,
   log: Function,
   wrapErrFirst: Function,
@@ -58,6 +58,7 @@ export interface IHookParam extends IHookOrTestCaseParam {
   // the h in h => {}
   (err?: Error): void,
   ctn: Function,
+  assert: typeof chai.assert
 }
 
 export interface ITestCaseParam extends IHookOrTestCaseParam {
@@ -65,7 +66,8 @@ export interface ITestCaseParam extends IHookOrTestCaseParam {
   (err?: Error): void
   skip: Function,
   pass: Function,
-  fail: Function
+  fail: Function,
+  assert: typeof chai.assert,
 }
 
 export type IHandleError = (e: IPseudoError) => void;
