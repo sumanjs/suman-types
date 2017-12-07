@@ -52,7 +52,7 @@ export interface ItFn {
   cb?: ItFn,
   parallel?: ItFn,
   series?: ItFn,
-  define: TDefine
+  define?: TDefine
 }
 
 export interface IRawTestData {

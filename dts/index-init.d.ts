@@ -51,49 +51,12 @@ export interface IInitRet {
   define: TDefine
 }
 
-export type TArray = Array<string | IDescribeOpts | TCreateHook>;
+export type TArray = Array<string | Partial<IDescribeOpts> | TCreateHook>;
 
-export interface IStartCreate1 {
-  (desc: string, opts: IDescribeOpts, arr: TArray): void;
-  tooLate?: boolean;
-}
-
-export interface IStartCreate2 {
-  (opts: IDescribeOpts, arr: TArray): void;
-  tooLate?: boolean;
-}
-
-export interface IStartCreate3 {
-  (opts: IDescribeOpts, fn: TCreateHook): void;
-  tooLate?: boolean;
-}
-
-export interface IStartCreate4 {
-  (arr: Array<string | IDescribeOpts | TCreateHook>): void;
-  tooLate?: boolean;
-}
-
-export interface IStartCreate5 {
-  (fn: TCreateHook): void;
-  tooLate?: boolean;
-}
-
-export interface IStartCreate6 {
-  (desc: string, arr: TArray): void;
-  tooLate?: boolean;
-}
-
-export interface IStartCreate7 {
-  (desc: string, fn: TCreateHook): void;
-  tooLate?: boolean;
-}
-
-export type IStartCreateOld = IStartCreate1 | IStartCreate2 | IStartCreate3 |
-  IStartCreate4 | IStartCreate5 | IStartCreate6 | IStartCreate7;
 
 export interface IStartCreate {
-  (desc: string | IDescribeOpts | TCreateHook | TArray,
-   opts?: IDescribeOpts | TCreateHook | TArray,
+  (desc: string | Partial<IDescribeOpts> | TCreateHook | TArray,
+   opts?: Partial<IDescribeOpts> | TCreateHook | TArray,
    arr?: TArray | TCreateHook): void;
   tooLate?: boolean;
 }
