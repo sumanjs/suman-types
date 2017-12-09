@@ -83,7 +83,7 @@ export interface IGlobalSumanObj {
   resultBroadcaster: EventEmitter,
   sumanReporters: Array<Object>,
   integrantsEmitter: EventEmitter,
-  sumanUncaughtExceptionTriggered: Object,
+  uncaughtExceptionTriggered: Object,
   projectRoot: string,
   usingRunner: boolean,
   sumanInitCalled: boolean,
