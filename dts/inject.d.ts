@@ -18,4 +18,8 @@ export interface IInjectHook {
 }
 
 export type IInjectHookCallbackMode = (h: IInjectHook) => void;
-export type IInjectHookRegularMode = (h?: IInjectHook) => Promise<any> | Subscription | undefined;
+export type IInjectHookRegularMode = (h: IInjectHook) => any;
+
+
+export type TInjectHook =
+  IInjectHookCallbackMode
