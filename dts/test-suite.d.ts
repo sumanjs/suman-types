@@ -108,12 +108,12 @@ export interface ITestOrHookBase {
   didNotThrowErrorWithExpectedMessage?: string,
   ctx: ITestSuite,
   timeout: number,
-  cb: boolean,
-  fn: THook,
+  cb?: boolean,
+  fn?: THook,
   type: string
-  successEvents: string | Array<string>,
-  errorEvents: string | Array<string>,
-  events: ITestOrHookBaseEvents
+  successEvents?: string | Array<string>,
+  errorEvents?: string | Array<string>,
+  events?: ITestOrHookBaseEvents
 }
 
 

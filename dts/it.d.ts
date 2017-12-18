@@ -5,6 +5,7 @@ import EventEmitter = NodeJS.EventEmitter;
 import { DefineObjectTestCase } from 'suman/lib/test-suite-helpers/define-options-classes';
 
 export interface ITestDataObj extends ITestOrHookBase {
+  [key: string]: any,
   alreadyInitiated: boolean,
   sumanModulePath?: string,
   skipped?: boolean,

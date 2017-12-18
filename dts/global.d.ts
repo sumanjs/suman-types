@@ -98,14 +98,30 @@ export interface IMaxMem {
   heapUsed: number
 }
 
+export interface ISumanOptsOverridable {
+  [key: string]: any,
+  allowSkip: boolean,
+  allowOnly: boolean,
+  bail: boolean,
+  series: boolean,
+  parallel: boolean,
+  parallelMax: boolean,
+  verbosity: number,
+  useTAPOutput: boolean,
+  useTAPJSONOutput: boolean
+}
+
 export interface ISumanOpts {
+  [key: string]: any,
 
   transpile: boolean,
   bail: boolean,
   series: boolean,
-  parallel: boolean
+  parallel: boolean,
   allow_skip: boolean,
   allow_only: boolean,
+  
+  debugHooks: boolean,
   debug_hooks: boolean,
   parallel_max: boolean,
 
@@ -113,6 +129,8 @@ export interface ISumanOpts {
 
   log_stdio_to_files: boolean,
   log_stdout_to_files: boolean,
+  
+  
   log_stderr_to_files: boolean,
   cwd_is_root: boolean,
   full_stack_traces: boolean,
@@ -134,7 +152,10 @@ export interface ISumanOpts {
   suman_helpers_dir: boolean,
   init: boolean,
   ignoreUncaughtExceptions: boolean,
+  use_tap_output: boolean,
+  use_tap_json_output: boolean
   $useTAPOutput: boolean,
+  $useTAPJSONOutput: boolean,
   verbosity: number,
   check_memory_usage: boolean
   errors_only: boolean
@@ -305,6 +326,11 @@ export interface ISumanConf {
     ignore: RegExp;
     extensions: string[];
   };
+}
+
+export interface ISumanConfigOverridable {
+  [key: string]: any,
+  
 }
 
 export interface ISumanConfig {

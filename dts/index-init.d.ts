@@ -1,7 +1,7 @@
 import EventEmitter = NodeJS.EventEmitter;
 
 import {IDescribeFn, IDescribeOpts, TDescribeHook} from "./describe";
-import {ISumanConfig, ISumanOpts} from "./global";
+import {ISumanConfig, ISumanConfigOverridable, ISumanOpts, ISumanOptsOverridable} from "./global";
 import {DefineObjectContext} from 'suman/lib/test-suite-helpers/define-options-classes';
 import {ITestSuite} from "./test-suite";
 
@@ -24,7 +24,13 @@ export interface ISumanModuleExtended extends NodeModule {
   sumanInitted?: boolean
 }
 
+export interface IOverride {
+  opts?: Partial<ISumanOptsOverridable>;
+  config?: Partial<ISumanConfigOverridable>;
+}
+
 export interface IInitOpts {
+  [key: string]: any,
   __expectedExitCode?: number;
   pre?: Array<string>;
   integrants?: Array<string>;
@@ -33,6 +39,7 @@ export interface IInitOpts {
   post?: Array<any>;
   iocData?: IIoCData;
   ioc?: Object;
+  override?: IOverride;
 }
 
 export interface IIoCData {
@@ -53,7 +60,6 @@ export interface IInitRet {
 
 export type TArray = Array<string | Partial<IDescribeOpts> | TCreateHook>;
 
-
 export interface IStartCreate {
   (desc: string | Partial<IDescribeOpts> | TCreateHook | TArray,
    opts?: Partial<IDescribeOpts> | TCreateHook | TArray,
@@ -62,5 +68,8 @@ export interface IStartCreate {
 }
 
 export interface IInitFn {
-  (module: ISumanModuleExtended, opts?: IInitOpts, sumanOptsOverride?: Partial<ISumanOpts>, sumanConfigOverride?: Partial<ISumanConfig>): IInitRet;
+  (module: ISumanModuleExtended,
+   opts?: IInitOpts,
+   sumanOptsOverride?: Partial<ISumanOptsOverridable>,
+   sumanConfigOverride?: Partial<ISumanConfigOverridable>): IInitRet;
 }
