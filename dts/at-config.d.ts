@@ -14,6 +14,7 @@ export interface IEnv {
 
 export interface IPlugin {
   comment: string,
+  relativePath: string, // relative path from @config.json to @run.sh or @transform.sh
   location: string,
   value: string
 }
