@@ -11,7 +11,7 @@ import {IAfterFn, IAfterObj} from "./after";
 import {IAfterEachFn, IAFterEachObj} from "./after-each";
 import {IBeforeFn} from "./before";
 import {IDescribeFn} from "./describe";
-import * as chai from 'chai';
+import {IHookOrTestCaseParam} from "./params";
 
 
 /////////////////////////////////////////////////////////////////////
@@ -42,33 +42,7 @@ export interface IAllOpts {
   only: boolean
 }
 
-export interface IHookOrTestCaseParam {
-  slow: Function,
-  log: Function,
-  wrapErrFirst: Function,
-  wrapErrorFirst: Function,
-  wrap: Function,
-  fatal: Function
-  callbackMode: boolean,
-  timeout: Function,
-  done: Function,
-}
 
-export interface IHookParam extends IHookOrTestCaseParam {
-  // the h in h => {}
-  (err?: Error): void,
-  ctn: Function,
-  assert: typeof chai.assert
-}
-
-export interface ITestCaseParam extends IHookOrTestCaseParam {
-  // the t in t => {}
-  (err?: Error): void
-  skip: Function,
-  pass: Function,
-  fail: Function,
-  assert: typeof chai.assert,
-}
 
 export type IHandleError = (e: IPseudoError) => void;
 export type THookCallbackMode = (x: IHookOrTestCaseParam) => void;
