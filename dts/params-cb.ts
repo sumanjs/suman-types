@@ -32,6 +32,7 @@ export interface ITestCaseParam extends IHookOrTestCaseParam {
   (err?: Error): void;
   pass: Function;
   fail: Function;
+  wrap: IHookOrTestCaseParam['wrap'];
 }
 
 
