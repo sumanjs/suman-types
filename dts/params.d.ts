@@ -4,11 +4,12 @@ import * as chai from 'chai';
 //////////////////////////////////////////////////
 
 export interface IHookOrTestCaseParam {
+  desc: string;
   slow: () => void;
   fatal: (err: any) => void;
   // callbackMode: boolean,
   timeout: Function;
-  skip: () => void;
+  // skip: () => void;
   set: (k: string, v: any) => void;
   get: (k?: string) => any;
   getValues: (...args: Array<string>) => Array<any>;

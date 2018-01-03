@@ -178,7 +178,8 @@ export interface IPseudoError {
   stack?: string
   message?: string,
   sumanFatal?: boolean,
-  sumanExitCode?: number
+  sumanExitCode?: number,
+  isFromTest?: boolean
 }
 
 export interface IPromiseWithDomain extends Promise<any> {

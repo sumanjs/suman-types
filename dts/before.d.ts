@@ -1,11 +1,14 @@
 import {Observable} from "rxjs/Observable";
 import {Subscriber} from "rxjs/Subscriber";
 import EventEmitter = NodeJS.EventEmitter;
-import {IAllOpts, IHookParam, IOnceHookObj} from "./test-suite";
+import {IAllOpts, IOnceHookObj} from "./test-suite";
 import {DefineObjectAllHook} from 'suman/lib/test-suite-helpers/define-options-classes';
+import {IAllHookParam} from "./params";
 
 export interface IBeforeObj extends IOnceHookObj {
-  // currently has no extra properties beyond IOnceHookObj
+  last: boolean;
+  always: boolean;
+  first: boolean;
 }
 
 type SubsetOfBeforeOpts = Partial<IBeforeOpts>;
@@ -30,12 +33,11 @@ export interface IBeforeOpts extends IAllOpts {
   plan: number;
 }
 
-export type BeforeHookCallbackMode = (h: IHookParam) => void;
-export type BeforeHookRegularMode = (h?: IHookParam) => Promise<any>;
-export type BeforeHookObservableMode = (h?: IHookParam) => Observable<any>;
-export type BeforeHookSubscriberMode = (h?: IHookParam) => Subscriber<any>;
-export type BeforeHookEEMode = (h?: IHookParam) => EventEmitter;
-
+export type BeforeHookCallbackMode = (h: IAllHookParam) => void;
+export type BeforeHookRegularMode = (h?: IAllHookParam) => Promise<any>;
+export type BeforeHookObservableMode = (h?: IAllHookParam) => Observable<any>;
+export type BeforeHookSubscriberMode = (h?: IAllHookParam) => Subscriber<any>;
+export type BeforeHookEEMode = (h?: IAllHookParam) => EventEmitter;
 
 export type TBeforeHook =
   BeforeHookCallbackMode |

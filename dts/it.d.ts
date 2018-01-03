@@ -1,7 +1,8 @@
-import { ITestCaseParam, THook, ITestSuite, ITestOrHookBase, IAllOpts } from "./test-suite";
+import {THook, ITestSuite, ITestOrHookBase, IAllOpts } from "./test-suite";
 import { Observable } from "rxjs/Observable";
 import { Subscriber } from "rxjs/Subscriber";
 import EventEmitter = NodeJS.EventEmitter;
+import {ITestCaseParam} from './params';
 import { DefineObjectTestCase } from 'suman/lib/test-suite-helpers/define-options-classes';
 
 export interface ITestDataObj extends ITestOrHookBase {
@@ -29,7 +30,7 @@ export interface ITestDataObj extends ITestOrHookBase {
   type: 'it/test-case',
   desc: string,
   fn?: THook,
-  warningErr?: Error
+  warningErr: Error
   timedOut?: boolean,
   complete?: boolean,
   dateStarted?: number,

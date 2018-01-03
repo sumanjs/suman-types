@@ -1,8 +1,9 @@
-import {IHookParam, IOnceHookObj} from "./test-suite";
+import {IOnceHookObj} from "./test-suite";
 import {Observable} from "rxjs/Observable";
 import {Subscriber} from "rxjs/Subscriber";
 import EventEmitter = NodeJS.EventEmitter;
 import {DefineObjectAllHook} from 'suman/lib/test-suite-helpers/define-options-classes';
+import {IAllHookParam} from "./params";
 
 type SubsetOfAfterOpts = Partial<IAfterOpts>;
 type IAfterFnArgTypes = SubsetOfAfterOpts | TAfterHook | Array<string | SubsetOfAfterOpts | TAfterHook>;
@@ -24,6 +25,7 @@ export interface IAfterFn {
 export interface IAfterObj extends IOnceHookObj {
   last: boolean;
   always: boolean;
+  first: boolean;
 }
 
 export interface IAfterOpts {
@@ -38,11 +40,11 @@ export interface IAfterOpts {
   always: boolean;
 }
 
-export type AfterHookCallbackMode = (h: IHookParam) => void;
-export type AfterHookRegularMode = (h: IHookParam) => Promise<any>;
-export type AfterHookObservableMode = (h: IHookParam) => Observable<any>;
-export type AfterHookSubscriberMode = (h: IHookParam) => Subscriber<any>;
-export type AfterHookEEMode = (h: IHookParam) => EventEmitter;
+export type AfterHookCallbackMode = (h: IAllHookParam) => void;
+export type AfterHookRegularMode = (h: IAllHookParam) => Promise<any>;
+export type AfterHookObservableMode = (h: IAllHookParam) => Observable<any>;
+export type AfterHookSubscriberMode = (h: IAllHookParam) => Subscriber<any>;
+export type AfterHookEEMode = (h: IAllHookParam) => EventEmitter;
 
 export type TAfterHook =
   AfterHookCallbackMode |

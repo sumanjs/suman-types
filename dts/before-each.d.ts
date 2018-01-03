@@ -1,5 +1,6 @@
 
-import {IEachHookObj, IHookParam} from "./test-suite";
+import {IEachHookObj} from "./test-suite";
+import {IEachHookParam} from './params';
 import {Observable} from "rxjs/Observable";
 import {Subscriber} from "rxjs/Subscriber";
 import EventEmitter = NodeJS.EventEmitter;
@@ -21,10 +22,7 @@ export interface IBeforeEachFn {
 }
 
 export interface IBeforeEachObj extends IEachHookObj {
-    desc: string,
-    throws: RegExp,
-    type: string,
-    warningErr: Error
+
 }
 
 export interface IBeforeEachOpts {
@@ -38,11 +36,11 @@ export interface IBeforeEachOpts {
 }
 
 
-export type BeforeEachHookCallbackMode = (h: IHookParam) => void;
-export type BeforeEachHookRegularMode = (h: IHookParam) => Promise<any>;
-export type BeforeEachHookObservableMode = (h: IHookParam) => Observable<any>;
-export type BeforeEachHookSubscriberMode = (h: IHookParam) => Subscriber<any>;
-export type BeforeEachHookEEMode = (h: IHookParam) => EventEmitter;
+export type BeforeEachHookCallbackMode = (h: IEachHookParam) => void;
+export type BeforeEachHookRegularMode = (h: IEachHookParam) => Promise<any>;
+export type BeforeEachHookObservableMode = (h: IEachHookParam) => Observable<any>;
+export type BeforeEachHookSubscriberMode = (h: IEachHookParam) => Subscriber<any>;
+export type BeforeEachHookEEMode = (h: IEachHookParam) => EventEmitter;
 
 
 export type TBeforeEachHook =

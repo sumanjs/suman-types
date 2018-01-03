@@ -1,4 +1,5 @@
-import {IEachHookObj, IHookParam} from "./test-suite";
+import {IEachHookObj} from "./test-suite";
+import {IEachHookParam} from './params';
 import {Observable} from "rxjs/Observable";
 import {Subscriber} from "rxjs/Subscriber";
 import EventEmitter = NodeJS.EventEmitter;
@@ -38,11 +39,11 @@ export interface IAFterEachObj extends IEachHookObj {
   warningErr: Error
 }
 
-type AfterEachHookCallbackMode = (h: IHookParam) => void;
-type AfterEachHookRegularMode = (h: IHookParam) => Promise<any>;
-type AfterEachHookObservableMode = (h: IHookParam) => Observable<any>;
-type AfterEachHookSubscriberMode = (h: IHookParam) => Subscriber<any>;
-type AfterEachHookEEMode = (h: IHookParam) => EventEmitter;
+type AfterEachHookCallbackMode = (h: IEachHookParam) => void;
+type AfterEachHookRegularMode = (h: IEachHookParam) => Promise<any>;
+type AfterEachHookObservableMode = (h: IEachHookParam) => Observable<any>;
+type AfterEachHookSubscriberMode = (h: IEachHookParam) => Subscriber<any>;
+type AfterEachHookEEMode = (h: IEachHookParam) => EventEmitter;
 
 export type TAfterEachHook =
   AfterEachHookCallbackMode |

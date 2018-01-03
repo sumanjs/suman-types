@@ -1,5 +1,5 @@
 import {Subscription} from "rxjs";
-import {IAllOpts} from "./test-suite";
+import {IAllOpts, IHookObj} from "./test-suite";
 
 export interface IInjectFn {
   (desc?: string, opts?: IInjectOpts, fn?: Function): void,
@@ -11,6 +11,11 @@ export interface IInjectOpts extends IAllOpts {
   cb: boolean;
   plan: number,
   throws: RegExp
+}
+
+
+export interface IInjectionObj extends IHookObj {
+
 }
 
 export interface IInjectHook {

@@ -1,5 +1,4 @@
 // dts
-import Timer = NodeJS.Timer;
 import {Subscriber} from "rxjs/Subscriber";
 import {Observable} from "rxjs/Observable";
 import {IPseudoError} from "./global";
@@ -24,13 +23,7 @@ export interface IAcceptableOptions {
 
 export type TestSuiteGetterFn <T> = () => Array<T>;
 
-export interface IAssertObj {
-  num: number
-}
 
-export interface ITimerObj {
-  timer: Timer
-}
 
 export interface IAllOpts {
   __preParsed?: boolean,
@@ -61,11 +54,6 @@ export type THook =
 
 
 
-export interface IInjectionObj extends IHookObj {
-
-}
-
-
 export interface ITestOrHookBaseEvents {
   success: string | Array<string>
   error: string | Array<string>
@@ -73,9 +61,10 @@ export interface ITestOrHookBaseEvents {
 
 
 export interface ITestOrHookBase {
+  timedOut?: boolean,
   alreadyInitiated?: boolean,
   desc: string,
-  warningErr?: Error,
+  warningErr: Error,
   errorPlanCount?: string,
   planCountExpected?: number
   throws?: RegExp,
@@ -87,15 +76,14 @@ export interface ITestOrHookBase {
   type: string
   successEvents?: string | Array<string>,
   errorEvents?: string | Array<string>,
-  events?: ITestOrHookBaseEvents
+  events?: ITestOrHookBaseEvents;
+  fatal: boolean,
+  retries?: number
 }
-
 
 export interface IHookObj extends ITestOrHookBase {
-  fatal: boolean,
-  retries: number
-}
 
+}
 
 export interface IOnceHookObj extends IHookObj {
 
