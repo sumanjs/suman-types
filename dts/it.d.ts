@@ -3,7 +3,7 @@ import { Observable } from "rxjs/Observable";
 import { Subscriber } from "rxjs/Subscriber";
 import EventEmitter = NodeJS.EventEmitter;
 import {ITestCaseParam} from './params';
-import { DefineObjectTestCase } from 'suman/lib/test-suite-helpers/define-options-classes';
+import { DefineObjectTestCase } from 'suman/dist/test-suite-helpers/define-options-classes';
 
 export interface ITestDataObj extends ITestOrHookBase {
   [key: string]: any,

@@ -2,7 +2,7 @@ import {Observable} from "rxjs/Observable";
 import {Subscriber} from "rxjs/Subscriber";
 import EventEmitter = NodeJS.EventEmitter;
 import {IAllOpts, IOnceHookObj} from "./test-suite";
-import {DefineObjectAllHook} from 'suman/lib/test-suite-helpers/define-options-classes';
+import {DefineObjectAllHook} from 'suman/dist/test-suite-helpers/define-options-classes';
 import {IAllHookParam} from "./params";
 
 export interface IBeforeObj extends IOnceHookObj {

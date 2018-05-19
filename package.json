@@ -26,6 +26,7 @@
     "url": "https://github.com/sumanjs/suman-types/issues"
   },
   "homepage": "https://github.com/sumanjs/suman-types#readme",
+  "dependencies": {},
   "devDependencies": {
     "@types/async": "^2.0.44",
     "@types/chai": "^4.0.7",

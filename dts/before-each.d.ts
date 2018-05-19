@@ -4,7 +4,7 @@ import {IEachHookParam} from './params';
 import {Observable} from "rxjs/Observable";
 import {Subscriber} from "rxjs/Subscriber";
 import EventEmitter = NodeJS.EventEmitter;
-import {DefineObjectEachHook} from 'suman/lib/test-suite-helpers/define-options-classes';
+import {DefineObjectEachHook} from 'suman/dist/test-suite-helpers/define-options-classes';
 
 type SubsetOfBeforeOpts = Partial<IBeforeEachOpts>;
 type IBeforeFnArgTypes = SubsetOfBeforeOpts | TBeforeEachHook | Array<string | SubsetOfBeforeOpts | TBeforeEachHook>;
