@@ -12,7 +12,6 @@ import {IBeforeFn} from "./before";
 import {IDescribeFn} from "./describe";
 import {IHookOrTestCaseParam} from "./params";
 
-
 /////////////////////////////////////////////////////////////////////
 
 export type TestSuiteMethodType = IBeforeEachFn | IBeforeFn | ItFn | IDescribeFn | IAfterFn | IAfterEachFn;
