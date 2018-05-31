@@ -1,6 +1,6 @@
 {
   "name": "suman-types",
-  "version": "0.0.1007",
+  "version": "0.0.1008",
   "description": "TypeScript type declarations for various SumanJS projects.",
   "typings": "dts/*",
   "types": "dts/*",
