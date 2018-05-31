@@ -10,7 +10,6 @@ scripts
 *.md
 *.txt
 *.log
-*.ts
 *.yml
 *.sh
 *.DS_Store
@@ -22,5 +21,3 @@ suman.conf.js
 .editorconfig
 yarn.lock
 
-### negation
-!*.d.ts
