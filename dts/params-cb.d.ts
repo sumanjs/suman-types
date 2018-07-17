@@ -1,7 +1,6 @@
+///////////////////////
+
 import * as chai from 'chai';
-
-
-//////////////////////////////////////////////////
 
 export interface IHookOrTestCaseParam {
   slow: () => void;
@@ -26,7 +25,6 @@ export interface IHookOrTestCaseParam {
   done: (err: Error) => void;
 }
 
-
 export interface ITestCaseParam extends IHookOrTestCaseParam {
   // the t in t => {}
   (err?: Error): void;
@@ -34,7 +32,6 @@ export interface ITestCaseParam extends IHookOrTestCaseParam {
   fail: Function;
   wrap: IHookOrTestCaseParam['wrap'];
 }
-
 
 export interface IInjectHookParam extends IHookOrTestCaseParam {
   // the j in j => {}

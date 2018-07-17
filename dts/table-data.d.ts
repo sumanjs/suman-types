@@ -1,4 +1,4 @@
-
+////////////////////////////
 
 export interface IDefaultTableData {
   SUITES_DESIGNATOR: string

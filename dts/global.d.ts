@@ -1,3 +1,5 @@
+//////////////////////////////////
+
 import Global = NodeJS.Global;
 import Domain = NodeJS.Domain;
 import {ITestSuite} from "./test-suite";
@@ -27,6 +29,9 @@ export interface IGlobalSumanObj {
   // we should execute Suman's in series, that makes it easier to run after.always shutdown, etc
   // which suman represents which Suman is executing at a given time
 
+  afterAlwaysHasBeenRegistered?: boolean;
+  testErrors?: Array<any>;
+  isActualExitHandlerRegistered?: boolean,
   tsrq: AsyncQueue<Function>,
   $staticIoc: Object,
   reporterRets: Array<IRet>,
@@ -183,6 +188,7 @@ export interface IPromiseWithDomain extends Promise<any> {
 export interface ISumanDomain extends Domain {
   testDescription?: string;
   isSumanDomain?: boolean;
+  dispose: any
 }
 
 export interface ISumanTestCaseDomain extends ISumanDomain {

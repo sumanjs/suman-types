@@ -1,3 +1,5 @@
+//////////////////////////////////
+
 import {THook, ITestSuite, ITestOrHookBase, IAllOpts } from "./test-suite";
 import { Observable } from "rxjs/Observable";
 import { Subscriber } from "rxjs/Subscriber";
@@ -14,7 +16,7 @@ export interface ITestDataObj extends ITestOrHookBase {
   fixed: boolean,
   skippedDueToItOnly?: boolean,
   testId: number,
-  error?: Error | string,
+  error?: any,
   errorDisplay?: string,
   stubbed?: boolean,
   data?: IRawTestData,

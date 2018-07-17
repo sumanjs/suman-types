@@ -1,3 +1,5 @@
+////////////////////////////////
+
 import EventEmitter = NodeJS.EventEmitter;
 import {ISumanOpts} from "./global";
 import {ITestSuite} from "./test-suite";

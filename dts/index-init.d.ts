@@ -1,9 +1,11 @@
+///////////////////////////
+
 import EventEmitter = NodeJS.EventEmitter;
 
 import {IDescribeFn, IDescribeOpts, TDescribeHook} from "./describe";
 import {ISumanConfig, ISumanConfigOverridable, ISumanOpts, ISumanOptsOverridable} from "./global";
 import {DefineObjectContext} from 'suman/dist/test-suite-helpers/define-options-classes';
-import {ITestSuite} from "./test-suite";
+import {ITestBlock} from "./test-suite";
 
 export interface IIntegrantsMessage {
   data: string,
@@ -18,7 +20,7 @@ export interface ICreateOpts {
 }
 
 // we don't know any of the args because of dependency injection
-export type TCreateHook = (b: ITestSuite, ...args: any[]) => void;
+export type TCreateHook = (b: ITestBlock, ...args: any[]) => void;
 
 export interface ISumanModuleExtended extends NodeModule {
   sumanInitted?: boolean
@@ -60,10 +62,17 @@ export interface IInitRet {
 
 export type TArray = Array<string | Partial<IDescribeOpts> | TCreateHook>;
 
+// export interface IStartCreate {
+//   (desc: string | Partial<IDescribeOpts> | TCreateHook | TArray,
+//    opts?: Partial<IDescribeOpts> | TCreateHook | TArray,
+//    arr?: TArray | TCreateHook): void;
+//   tooLate?: boolean;
+// }
+
 export interface IStartCreate {
-  (desc: string | Partial<IDescribeOpts> | TCreateHook | TArray,
-   opts?: Partial<IDescribeOpts> | TCreateHook | TArray,
-   arr?: TArray | TCreateHook): void;
+  (desc: string, opts: Partial<IDescribeOpts>, h: TCreateHook): void;
+  (desc: string, h: TCreateHook): void;
+  (h: TCreateHook): void;
   tooLate?: boolean;
 }
 

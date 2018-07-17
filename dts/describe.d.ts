@@ -1,3 +1,5 @@
+//////////////////////
+
 import {IAllOpts, ITestSuite} from "./test-suite";
 
 type IDescribeFnArgTypes = Partial<IDescribeOpts> | TDescribeHook | Array<string | TDescribeHook>;

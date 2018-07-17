@@ -1,3 +1,5 @@
+/////////////////////////////
+
 // dts
 import {Subscriber} from "rxjs/Subscriber";
 import {Observable} from "rxjs/Observable";
@@ -21,7 +23,19 @@ export interface IAcceptableOptions {
 }
 
 
+export interface ITestBlock {
+  getHooks(): TestSuiteMethods
+}
 
+
+export interface TestSuiteMethods {
+  after: IAfterFn;
+  afterEach: IAfterEachFn;
+  before: IBeforeFn;
+  beforeEach: IBeforeEachFn;
+  describe: IDescribeFn,
+  it: ItFn
+}
 
 
 export interface IAllOpts {
@@ -68,7 +82,7 @@ export interface ITestOrHookBase {
   planCountExpected?: number
   throws?: RegExp,
   didNotThrowErrorWithExpectedMessage?: string,
-  ctx: ITestSuite,
+  ctx: any, // TestBlock but we can't import that here
   timeout: number,
   cb?: boolean,
   fn?: THook,
@@ -96,48 +110,3 @@ export interface IEachHookObj extends IHookObj {
 
 
 
-export interface ITestSuite extends ITestSuiteBase {
-
-  new (opts: ITestSuiteMakerOpts): void;
-
-  [key: string]: any,
-
-  // object
-  opts: Object,
-  parent: ITestSuite,
-
-  //number
-  testId: number,
-
-  //boolean
-  skippedDueToDescribeOnly: boolean,
-  isSetupComplete: boolean,
-  parallel: boolean,
-  skipped: boolean,
-  only: boolean,
-
-  // string
-  desc: string,
-  filename: string,
-  fileName: string
-
-  // function
-  _run?: Function,
-  invokeChildren?: Function,
-  bindExtras: Function
-
-}
-
-export interface ITestSuiteBaseInitObjOpts {
-  skip: boolean,
-  only: boolean,
-  mode: string,
-  parallel: boolean,
-  series: boolean,
-  serial: boolean
-}
-
-export interface ITestSuiteBaseInitObj {
-  opts: ITestSuiteBaseInitObjOpts
-
-}

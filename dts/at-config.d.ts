@@ -1,4 +1,4 @@
-
+//////////////
 
 // @config.json schema
 export interface IAtConfig {
