@@ -1,5 +1,6 @@
 import EventEmitter = NodeJS.EventEmitter;
 import {ITestSuite} from "./test-suite";
+import {ISumanOpts} from "./global";
 
 
 export interface ISumanGlobalInternal {
@@ -16,7 +17,8 @@ export interface ISumanInputs {
   fileName: string,
   timestamp: number,
   usingLiveSumanServer: boolean
-  server: ISumanServerInfo
+  server: ISumanServerInfo,
+  opts: ISumanOpts;
 }
 
 export interface ISumanServerInfo {

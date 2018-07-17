@@ -9,3 +9,6 @@ export interface IAssertObj {
 export interface ITimerObj {
   timer: Timer
 }
+
+
+export type EVCb<T, E = any> = (err: E, val?: T) => void;

@@ -4,7 +4,6 @@ import * as chai from 'chai';
 //////////////////////////////////////////////////
 
 export interface IHookOrTestCaseParam {
-  desc: string;
   slow: () => void;
   fatal: (err: any) => void;
   // callbackMode: boolean,

@@ -36,5 +36,8 @@
     "chai": "^4.1.2",
     "rxjs": "^5.4.3",
     "typescript-json-schema": "^0.20.0"
+  },
+    "npp":{
+    "publishable": true
   }
 }

@@ -174,20 +174,15 @@ export interface SumanErrorRace extends Error {
   _alreadyHandledBySuman?: boolean
 }
 
-export interface IPseudoError {
-  stack?: string
-  message?: string,
-  sumanFatal?: boolean,
-  sumanExitCode?: number,
-  isFromTest?: boolean
-}
+
 
 export interface IPromiseWithDomain extends Promise<any> {
   domain?: ISumanTestCaseDomain | ISumanEachHookDomain | ISumanAllHookDomain
 }
 
 export interface ISumanDomain extends Domain {
-  isSumanDomain?: boolean
+  testDescription?: string;
+  isSumanDomain?: boolean;
 }
 
 export interface ISumanTestCaseDomain extends ISumanDomain {

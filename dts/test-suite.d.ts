@@ -20,7 +20,7 @@ export interface IAcceptableOptions {
   [key: string]: true
 }
 
-export type TestSuiteGetterFn <T> = () => Array<T>;
+
 
 
 
@@ -81,7 +81,8 @@ export interface ITestOrHookBase {
 }
 
 export interface IHookObj extends ITestOrHookBase {
-
+  skipped?: boolean,
+  dynamicallySkipped?: boolean
 }
 
 export interface IOnceHookObj extends IHookObj {
@@ -92,32 +93,8 @@ export interface IEachHookObj extends IHookObj {
 
 }
 
-export interface IInjectedValues {
-  [key: string]: any
-}
 
-export interface ITestSuiteBase {
 
-  injectedValues: IInjectedValues,
-
-  // getters
-  getInjections: Function,
-  getChildren: Function,
-
-  getTests: TestSuiteGetterFn<ITestDataObj>,
-  getParallelTests: TestSuiteGetterFn<ITestDataObj>,
-  getTestsParallel: TestSuiteGetterFn<any>,
-  getLoopTests: TestSuiteGetterFn<any>,
-  getBefores: TestSuiteGetterFn<any>,
-  getBeforeEaches: TestSuiteGetterFn<IBeforeEachObj>,
-  getAfters: TestSuiteGetterFn<IAfterObj>,
-  getAftersLast: TestSuiteGetterFn<IAfterObj>,
-  getAfterEaches: TestSuiteGetterFn<IAFterEachObj>,
-  getResumeValue?: Function,
-  fatal?: Function,
-  resume?: Function,
-
-}
 
 export interface ITestSuite extends ITestSuiteBase {
 
