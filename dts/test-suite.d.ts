@@ -3,9 +3,7 @@
 // dts
 import {Subscriber} from "rxjs/Subscriber";
 import {Observable} from "rxjs/Observable";
-import {IPseudoError} from "./global";
 import EventEmitter = NodeJS.EventEmitter;
-import {ITestSuiteMakerOpts} from "./test-suite-maker";
 import {ITestDataObj, ItFn} from "./it";
 import {IBeforeEachFn, IBeforeEachObj} from "./before-each";
 import {IAfterFn, IAfterObj} from "./after";
@@ -22,11 +20,20 @@ export interface IAcceptableOptions {
   [key: string]: true
 }
 
-
 export interface ITestBlock {
-  getHooks(): TestSuiteMethods
+  getHooks(): TestSuiteMethods;
+  set(k: any, v: any): boolean;
+  get(k?: any): any;
+  getValues(...args: Array<string>): Array<any>;
+  getMap(...args: Array<string>): object;
+  getInjectedValue(key: string): any;
+  getInjectedValues(mandatory: string, ...args: string[]): Array<any>;
+  getInjectedMap(...args: string[]): object;
+  getSourced(): any;
+  getSourcedValue(v: string): any;
+  getSourcedValues(...args: string[]): Array<any>;
+  getSourcedMap(...args: string[]): object;
 }
-
 
 export interface TestSuiteMethods {
   after: IAfterFn;
@@ -36,7 +43,6 @@ export interface TestSuiteMethods {
   describe: IDescribeFn,
   it: ItFn
 }
-
 
 export interface IAllOpts {
   __preParsed?: boolean,
@@ -50,7 +56,7 @@ export interface IAllOpts {
 
 
 
-export type IHandleError = (e: IPseudoError) => void;
+export type IHandleError = (e: any) => void;
 export type THookCallbackMode = (x: IHookOrTestCaseParam) => void;
 export type HookRegularMode = (x: IHookOrTestCaseParam) => Promise<any>;
 export type HookObservableMode = (x: IHookOrTestCaseParam) => Observable<any>;
