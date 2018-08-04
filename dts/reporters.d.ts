@@ -2,7 +2,7 @@
 
 import EventEmitter = NodeJS.EventEmitter;
 import {ISumanOpts} from "./global";
-import {ITestSuite} from "./test-suite";
+import {ITestBlock} from "./test-suite";
 
 export interface IResultsObj {
   n: number,
@@ -41,7 +41,7 @@ export type IReporterLoadFn =
 
 
 export interface ITAPJSONTestCase {
-  testCase: ITestSuite,
+  testCase: ITestBlock,
   padding: number
   messageType: string
 }
