@@ -7,11 +7,9 @@ const {Test} = suman.init(module);
 ///////////////////////////////////////////////////////////////////////
 
 Test.create(function (b, assert, describe, before, beforeEach, after, afterEach, it) {
-
-
-
+  
   it('sync test', t => {
-    assert(true);
+    t.assert(true);
   });
 
   it('async test', t => {

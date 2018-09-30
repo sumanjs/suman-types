@@ -8,7 +8,7 @@ export interface IDescribeFn {
   // (s: string, ...args: IDescribeFnArgTypes[]): void,
 
   (s: string, h: TDescribeHook): void,
-  (s: string, o, IDescribeOpts, h: TDescribeHook): void,
+  (s: string, o: IDescribeOpts, h: TDescribeHook): void,
 
   delay?: IDescribeFn,
   skip?: IDescribeFn,

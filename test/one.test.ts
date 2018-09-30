@@ -8,10 +8,8 @@ const {Test} = suman.init(module);
 
 Test.create(function (b, assert, describe, before, beforeEach, after, afterEach, it: s.ItFn) {
   
-  
   it('sync test', t => {
-    
-    assert(true);
+    t.assert(true);
   });
   
   it('async test', t => {
