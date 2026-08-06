@@ -11,3 +11,7 @@ coverage
 ### matching files
 *.log
 
+tmp
+temp
+tmp/worktrees
+temp/worktrees
